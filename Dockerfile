@@ -14,3 +14,6 @@ WORKDIR app
 COPY Gemfile /app/
 COPY Gemfile.lock /app/
 RUN bundle install
+
+# everything else do as non-root user!
+USER 1000:1000
