@@ -8,8 +8,8 @@ default: &default
 local: &local
   <<: *default
   host: db # docker-compose.yml service db hosts the database (line 3)
-  user: <%= ENV.fetch("POSTGRES_USER") %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  user: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
 
 
 development:
@@ -26,7 +26,7 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV.fetch("DATABASE_URL") %>
+  url: <%= ENV["DATABASE_URL"] %>
   database: recipe_fiend_production
   username: recipe_fiend
-  password: <%= ENV.fetch("RECIPE_FIEND_DATABASE_PASSWORD") %>
+  password: <%= ENV["RECIPE_FIEND_DATABASE_PASSWORD"] %>
