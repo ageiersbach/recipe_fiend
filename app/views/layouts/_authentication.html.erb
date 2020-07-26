@@ -1,0 +1,5 @@
+<div class="authentication">
+  <% if current_user.nil? %>
+    <%= link_to 'Sign in', new_user_session_path, class: 'btn-link' %>
+  <% end %>
+</div>

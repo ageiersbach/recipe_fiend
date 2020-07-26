@@ -10,10 +10,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/branding' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'layouts/navigation', hide_authentication: devise_controller? %>
+    <div class="body-container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

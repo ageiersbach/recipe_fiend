@@ -1,0 +1,12 @@
+@import 'colors';
+
+$border-radius: 3px;
+$nav-height: 80px;
+
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}

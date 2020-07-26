@@ -1,0 +1,18 @@
+@import 'variables';
+
+nav {
+
+  &.navbar {
+    @include flex;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $nav-height;
+    width: 100vw;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+
+}

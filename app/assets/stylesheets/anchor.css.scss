@@ -1,0 +1,18 @@
+@import 'variables';
+
+a {
+
+  &.btn-link {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    color: $text-color;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+
+  &.plain-link {
+    color: $text-color;
+    text-decoration: none;
+  }
+
+}
