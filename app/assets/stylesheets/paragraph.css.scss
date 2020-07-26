@@ -1,0 +1,23 @@
+@import 'colors';
+
+p {
+
+  :not(:empty) {
+    padding: 6px 12px;
+  }
+
+  .alert {
+    background-color: $light-red;
+  }
+
+  .notice {
+    background-color: $light-blue;
+  }
+
+  .alert:empty,
+  .notice:empty {
+    padding: 0;
+    display: none;
+  }
+
+}
