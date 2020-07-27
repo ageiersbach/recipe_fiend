@@ -10,8 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * = require 'variables'
+ *= require_self
  */
+
+// variables
+@import 'colors';
+@import 'variables';
 
 // base elements
 @import 'anchor';
