@@ -1,0 +1,16 @@
+@import 'variables';
+
+.panel {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  display: inline-block;
+  padding: 24px;
+
+  &.devise-panel {
+    position: absolute;
+    top: $nav-height;
+    right: 0;
+    margin-right: 12px;
+  }
+
+}

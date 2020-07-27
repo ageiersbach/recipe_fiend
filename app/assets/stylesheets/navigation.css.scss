@@ -5,13 +5,14 @@ nav {
   &.navbar {
     @include flex;
 
+    align-items: baseline;
+    background-color: $nav-background-color;
+    height: $nav-height;
+    justify-content: space-between;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
-    height: $nav-height;
     width: 100vw;
-    justify-content: space-between;
-    align-items: baseline;
   }
 
 

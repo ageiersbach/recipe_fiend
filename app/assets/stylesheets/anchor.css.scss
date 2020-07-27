@@ -2,6 +2,12 @@
 
 a {
 
+  color: $link-color;
+
+  &:visited {
+    color: lighten($link-color, 10);
+  }
+
   &.btn-link {
     border: 1px solid $border-color;
     border-radius: $border-radius;

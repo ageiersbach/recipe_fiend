@@ -1,0 +1,22 @@
+@import 'variables';
+
+input {
+
+  margin-bottom: 10px;
+  padding: 6px 12px;
+
+  &[type='email'],
+  &[type='password'] {
+    width: 90%;
+  }
+
+  &[type='submit'] {
+    background-color: darken($button-primary-color, 6);
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    color: $text-color;
+    cursor: pointer;
+    padding: 6px 12px;
+  }
+
+}
