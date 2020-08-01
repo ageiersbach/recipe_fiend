@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'puma', '~> 4.1' # app server
 gem 'pundit'
+gem 'react-rails'
 gem 'sass-rails', '>= 6' #scss for stylesheets
 gem 'turbolinks', '~> 5'
 
