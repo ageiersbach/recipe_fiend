@@ -7,6 +7,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'devise'
 gem 'pg'
+gem 'pundit'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
