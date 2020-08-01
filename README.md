@@ -1,24 +1,10 @@
-# README
+# RecipeFiend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A site for storing and sharing recipes.
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+1. `docker-compose build`
+2. `docker-compose up`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The rails server will be at localhost:3000.
