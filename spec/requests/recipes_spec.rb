@@ -15,8 +15,15 @@
 RSpec.describe "/recipes", type: :request do
   # Recipe. As you add validations to Recipe, be sure to
   # adjust the attributes here as well.
+  let(:user) { create(:user) }
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      name: 'Recipe'
+    }
+  }
+
+  before(:each) {
+    sign_in user
   }
 
   let(:invalid_attributes) {
@@ -25,7 +32,7 @@ RSpec.describe "/recipes", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Recipe.create! valid_attributes
+      create(:recipe)
       get recipes_url
       expect(response).to be_successful
     end
@@ -33,7 +40,7 @@ RSpec.describe "/recipes", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
-      recipe = Recipe.create! valid_attributes
+      recipe = create(:recipe)
       get recipe_url(recipe)
       expect(response).to be_successful
     end
@@ -48,7 +55,7 @@ RSpec.describe "/recipes", type: :request do
 
   describe "GET /edit" do
     it "render a successful response" do
-      recipe = Recipe.create! valid_attributes
+      recipe = create(:recipe, user: user)
       get edit_recipe_url(recipe)
       expect(response).to be_successful
     end
@@ -89,14 +96,14 @@ RSpec.describe "/recipes", type: :request do
       }
 
       it "updates the requested recipe" do
-        recipe = Recipe.create! valid_attributes
+        recipe = create(:recipe)
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
         skip("Add assertions for updated state")
       end
 
       it "redirects to the recipe" do
-        recipe = Recipe.create! valid_attributes
+        recipe = create(:recipe)
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
         expect(response).to redirect_to(recipe_url(recipe))
@@ -105,7 +112,7 @@ RSpec.describe "/recipes", type: :request do
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        recipe = Recipe.create! valid_attributes
+        recipe = create(:recipe)
         patch recipe_url(recipe), params: { recipe: invalid_attributes }
         expect(response).to be_successful
       end
@@ -114,14 +121,14 @@ RSpec.describe "/recipes", type: :request do
 
   describe "DELETE /destroy" do
     it "destroys the requested recipe" do
-      recipe = Recipe.create! valid_attributes
+      recipe = create(:recipe, user: user)
       expect {
         delete recipe_url(recipe)
       }.to change(Recipe, :count).by(-1)
     end
 
     it "redirects to the recipes list" do
-      recipe = Recipe.create! valid_attributes
+      recipe = create(:recipe, user: user)
       delete recipe_url(recipe)
       expect(response).to redirect_to(recipes_url)
     end

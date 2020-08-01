@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    authorize Recipe
   end
 
   # GET /recipes/1
@@ -14,7 +15,8 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.new
+    authorize @recipe
   end
 
   # GET /recipes/1/edit
@@ -25,6 +27,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = current_user.recipes.new(recipe_params)
+    authorize @recipe
 
     respond_to do |format|
       if @recipe.save
@@ -40,6 +43,7 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
+    authorize @recipe
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
@@ -54,6 +58,7 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
+    authorize @recipe
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
@@ -65,6 +70,7 @@ class RecipesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])
+      authorize @recipe
     end
 
     # Only allow a list of trusted parameters through.

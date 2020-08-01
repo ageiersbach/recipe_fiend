@@ -1,11 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "recipes/index", type: :view do
+  let(:user1) { create(:user) }
+  let(:user2) { create(:user) }
+  let(:recipes) do
+    [
+      create(:recipe, name: "Name", user: user1),
+      create(:recipe, name: "Name", user: user2)
+    ]
+  end
+
   before(:each) do
-    assign(:recipes, [
-      create(:recipe, name: "Name"),
-      create(:recipe, name: "Name")
-    ])
+    allow(view).to receive(:current_user).and_return(user1)
+    assign(:recipes, recipes)
   end
 
   it "renders a list of recipes" do
