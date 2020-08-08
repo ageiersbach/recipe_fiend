@@ -1,0 +1,15 @@
+.flash-message {
+  background-color: lighten($light-blue, 4%);
+  border: 1px solid $border-color;
+  display: inline-block;
+  padding: 6px;
+
+  p {
+    display: inline-block;
+    margin: 0 12px;
+  }
+
+  button {
+    margin: 0 12px;
+  }
+}

@@ -27,6 +27,7 @@
 @import 'divs/authentication';
 @import 'divs/body-container';
 @import 'divs/branding';
+@import 'divs/flash-message';
 @import 'divs/panel';
 
 // helpers
@@ -34,6 +35,7 @@
 @import 'typography';
 
 // fontawesome
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/regular.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';

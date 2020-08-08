@@ -12,7 +12,7 @@
   <body>
     <%= render 'layouts/navigation' %>
     <div class="body-container">
-      <%= react_component("FlashNotice", { message: "Hello from react-rails." }) %>
+      <%= react_component("FlashNotice", { message: flash.notice }) %>
 
       <p class="alert"><%= alert %></p>
 
