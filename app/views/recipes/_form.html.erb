@@ -16,6 +16,15 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :preheat_temp %>
+    <%= form.number_field :preheat_temp %>
+    <%= form.select :preheat_celcius, [
+        ['Fahrenheit', false],
+        ['Celcius', true]
+      ], selected: form.object.preheat_celcius %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

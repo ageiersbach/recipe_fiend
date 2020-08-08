@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Preheat:</strong>
+  <%= @recipe.preheat_temp %>
+  <%= @recipe.preheat_celcius ? 'C' : 'F' %>
 </p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |

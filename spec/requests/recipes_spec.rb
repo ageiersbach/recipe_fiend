@@ -18,7 +18,9 @@ RSpec.describe "/recipes", type: :request do
   let(:user) { create(:user) }
   let(:valid_attributes) {
     {
-      name: 'Recipe'
+      name: 'Recipe',
+      preheat_temp: '300',
+      preheat_celcius: true
     }
   }
 
@@ -27,7 +29,7 @@ RSpec.describe "/recipes", type: :request do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: '' }
   }
 
   describe "GET /index" do
@@ -92,18 +94,19 @@ RSpec.describe "/recipes", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: 'Recipe', preheat_temp: 178, preheat_celcius: true }
       }
 
       it "updates the requested recipe" do
-        recipe = create(:recipe)
+        recipe = create(:recipe, name: 'Other Recipe', preheat_temp: 450, user: user)
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
-        skip("Add assertions for updated state")
+        expect(recipe.name).to eq('Recipe')
+        expect(recipe.preheat_temp).to eq(178)
       end
 
       it "redirects to the recipe" do
-        recipe = create(:recipe)
+        recipe = create(:recipe, user: user)
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
         expect(response).to redirect_to(recipe_url(recipe))
@@ -112,7 +115,7 @@ RSpec.describe "/recipes", type: :request do
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        recipe = create(:recipe)
+        recipe = create(:recipe, user: user)
         patch recipe_url(recipe), params: { recipe: invalid_attributes }
         expect(response).to be_successful
       end
