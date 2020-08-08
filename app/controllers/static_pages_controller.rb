@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
 
-  def home ; end
+  def home
+    skip_authorization
+  end
 
 end
