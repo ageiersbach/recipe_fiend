@@ -23,12 +23,15 @@
 @import 'input';
 @import 'navigation';
 @import 'paragraph';
+@import 'table';
 
 @import 'divs/authentication';
 @import 'divs/body-container';
 @import 'divs/branding';
+@import 'divs/field';
 @import 'divs/flash-message';
 @import 'divs/panel';
+@import 'divs/recipe-card';
 
 // helpers
 @import 'layout-helpers';

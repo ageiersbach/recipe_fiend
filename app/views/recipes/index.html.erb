@@ -1,9 +1,7 @@
-<h1>Recipes</h1>
-
-<table>
+<table class="recipes-table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Recipe</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,8 +11,16 @@
       <tr>
         <td><%= recipe.name %></td>
         <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if policy(recipe).update? %>
+            <%= link_to 'Edit', edit_recipe_path(recipe) %>
+          <% end %>
+        </td>
+        <td>
+          <% if policy(recipe).destroy? %>
+            <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

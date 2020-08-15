@@ -1,0 +1,12 @@
+.recipe-card {
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 12px;
+
+  .actions {
+    @include flex;
+    justify-content: flex-end;
+  }
+
+}

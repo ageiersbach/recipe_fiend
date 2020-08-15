@@ -1,13 +1,30 @@
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<div class="recipe-card">
+  <p>
+    <strong>Name:</strong>
+    <%= @recipe.name %>
+  </p>
 
-<p>
-  <strong>Preheat:</strong>
-  <%= @recipe.preheat_temp %>
-  <%= @recipe.preheat_celcius ? 'C' : 'F' %>
-</p>
+  <p>
+    <strong>Preheat:</strong>
+    <%= @recipe.preheat_temp %>
+    <%= @recipe.preheat_celcius ? 'C' : 'F' %>
+  </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+  <% if policy(@recipe).update? %>
+    <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+  <% end %>
+
+  <%= link_to 'Back to Recipes', recipes_path %>
+
+</div>
+
+<h2>Ingredients</h2>
+
+<ul class="recipe-ingredients">
+  <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+    <li><%= recipe_ingredient.ingredient.name %></li>
+  <% end %>
+</ul>
+
+<% csrf_token = form_authenticity_token %>
+<%= react_component("AddIngredientForm", { recipeId: @recipe.id, token: csrf_token }) %>

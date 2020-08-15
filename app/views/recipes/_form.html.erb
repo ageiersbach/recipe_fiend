@@ -1,31 +1,33 @@
-<%= form_with(model: recipe, local: true) do |form| %>
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<div class="recipe-card">
+  <%= form_with(model: recipe, local: true) do |form| %>
+    <% if recipe.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-      <ul>
-        <% recipe.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :preheat_temp %>
+      <%= form.number_field :preheat_temp %>
+      <%= form.select :preheat_celcius, [
+          ['Fahrenheit', false],
+          ['Celcius', true]
+        ], selected: form.object.preheat_celcius %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :preheat_temp %>
-    <%= form.number_field :preheat_temp %>
-    <%= form.select :preheat_celcius, [
-        ['Fahrenheit', false],
-        ['Celcius', true]
-      ], selected: form.object.preheat_celcius %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
