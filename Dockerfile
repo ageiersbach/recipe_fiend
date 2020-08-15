@@ -16,6 +16,8 @@ COPY Gemfile.lock /app/
 RUN bundle install
 
 RUN useradd annecodes
-
+RUN mkdir /home/annecodes
+RUN touch /home/annecodes/.yarnrc
+RUN chown -R annecodes /home/annecodes
 # everything else do as non-root user!
 USER 1000:1000
