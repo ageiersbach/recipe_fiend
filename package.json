@@ -9,14 +9,35 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "jest-enzyme": "^7.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "react_ujs": "^2.6.1",
     "turbolinks": "^5.2.0"
   },
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "roots": [
+      "spec/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript"
+    ],
+    "setupFilesAfterEnv": [
+      "./spec/javascript/setupTests.js"
+    ]
+  },
   "version": "0.1.0",
   "devDependencies": {
+    "jest": "^26.4.0",
     "webpack-dev-server": "^3.11.0"
   }
 }
