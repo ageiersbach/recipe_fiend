@@ -24,9 +24,19 @@ class AddIngredientForm extends React.Component {
 
     let ingredientPath = `/recipes/${this.state.recipeId}/recipe_ingredients`;
     return (
-      <div class="recipe-ingredient-form">
+      <div className="recipe-ingredient-form recipe-card">
         <form action={ingredientPath} method="post">
-          <input name="recipe_ingredients[name]" type="text" />
+
+          <div className="field">
+            <label for="recipe_ingredients_name">Ingredient:</label>
+            <input name="recipe_ingredients[name]" type="text" />
+          </div>
+
+          <div className="field">
+            <label for="recipe_ingredients_preparation">Preparation (chopped/etc):</label>
+            <input name="recipe_ingredients[preparation]" type="text" />
+          </div>
+
           <input name="authenticity_token" type="hidden" value={this.state.token} />
           <div class="actions">
             <input name="commit" type="submit" value="Add Ingredient" />

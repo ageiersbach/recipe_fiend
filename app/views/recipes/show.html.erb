@@ -22,7 +22,10 @@
 
 <ul class="recipe-ingredients">
   <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-    <li><%= recipe_ingredient.ingredient.name %></li>
+    <li>
+      <%= recipe_ingredient.ingredient.name %>,
+      <%= recipe_ingredient.preparation %>
+    </li>
   <% end %>
 </ul>
 
